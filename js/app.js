@@ -17,22 +17,29 @@ let Enemy = class Enemy {
 Enemy.prototype.update = function (dt) {
     // Você deve multiplicar cada movimento por dt
     this.cordx += this.vel * dt;
-    // assegura que o jogo rode na mesma velocidade em todos computadores.
-
-    // Aos inimigos que estao fora do canvas, irao reaparecer randomicamente com diferentes velocidades.
+    
     if (this.cordx > 510) {
         this.cordx = -50;
         this.vel = 100 + Math.floor(Math.random() * 222);
     };
 
-    // verifica colisoes entre o player eos inimigos.
     if (player.cordx < this.cordx + 80 &&
         player.cordx + 80 > this.cordx &&
         player.cordy < this.cordy + 60 &&
         60 + player.cordy > this.cordy) {
         player.cordx = 202;
         player.cordy = 405;
+        player.pontos= 0;
+        player.vidas--;
     };
+
+    if (player.vidas < 1){
+        player.cordx = 202;
+        player.cordy = 405;
+        player.pontos= 0;
+        player.vidas = 3;
+    }
+
 };
 
 // Desenha o inimigo na tela
@@ -48,6 +55,8 @@ let Player = class Player {
 
         this.cordx = cordx;
         this.cordy = cordy;
+        this.pontos= 0;
+        this.vidas = 3;
 
         // A imagem do jogador, this usa uma classe helper que carrega
         // a imagem facilmente
@@ -62,7 +71,11 @@ Player.prototype.update = function (dt) {
 // renderiza a imagem do jogador
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.player), this.cordx, this.cordy);
+    Engine.scoreEl.innerHTML=this.pontos;
+    Engine.life.innerHTML=this.vidas;
+   
 };
+
 
 
 Player.prototype.handleInput = function (keyPress) {
@@ -79,13 +92,16 @@ Player.prototype.handleInput = function (keyPress) {
         this.cordy += 83;
     };
 
-// Uma vez no topo, na agua, o usuario é instanteneamente realocado para o local de partida
+// Uma vez no topo, na agua, o usuario é instanteneamente realocado para o local inicial de partida
     if (this.cordy < 0) {
         setTimeout(() => {
             this.cordx = 202;
             this.cordy = 405;
-        }, 800);
-    };
+            this.pontos += 200;
+            console.log(this.pontos)    
+        }, 100);
+        
+    };    
 };
 
 // Agora instancie seus objetos.

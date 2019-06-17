@@ -1,3 +1,45 @@
 body {
-    text-align: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+canvas {
+    margin: 0 auto;
+}
+
+.game {
+  text-align: center;
+  float: right;
+  margin-right: 2em;
+  color: rgb(20, 20, 201);
+  font-size: 18px;
+}
+header h2 {
+  background-color: rgba(109, 129, 129, 0.911);
+}
+.game .val {
+  color: rgb(251, 247, 40);
+  text-shadow: 0.2em;
+}
+
+.game .val2 {
+  color: rgb(251, 40, 40);
+  text-shadow: 1em;
+}
+
+header h1 {
+  color: rgb(14, 114, 44);
+  overflow: hidden;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 125px;
+  clear: right;
+  font-size: 20px;
+}
+
+header h2 {
+  margin-bottom: 0;
 }

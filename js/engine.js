@@ -23,11 +23,17 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
+    
+        var canvasInfo={
+        };
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
-
+    canvasInfo.scoreEl=document.querySelector(".game.score .val");
+    canvasInfo.life=document.querySelector(".game.vida .val2");
+    doc.body.appendChild(canvas,canvasInfo);
+    
+    
     /* Essa função serve como ponto de partida para o próprio loop do jogo e manipula 
      * corretamente os métodos de atualização e renderização.
      */
@@ -181,4 +187,5 @@ var Engine = (function(global) {
      * facilmente a partir de seus arquivos app.js.
      */
     global.ctx = ctx;
+    return canvasInfo;
 })(this);
