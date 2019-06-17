@@ -6,8 +6,7 @@ Frogger Arcade game é uma variação do jogo classico de 1981
 
 <h2>Summary</h2>
 
-O jogo foi um desafio proposto realizado na universidade federal do ceará (UFC) da cadeira de programação web 2019.1
-
+O jogo foi um desafio proposto realizado na universidade federal do ceará (UFC) da cadeira de programação web 2019.1 do meu curso de Engenharia de Software.
 
 <h3>Objetivo/Goals.</h3>
 
